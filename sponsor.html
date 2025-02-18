@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Pear Admin 官网</title>
+		<meta name="description" content="快速开发平台">
+		<meta name="keyword" content="layui,spring,admin,vue,element,ant,开源框架,开源组织,开发平台,开源社区">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="./assets/favicon.ico" rel="icon">
+		<link rel="stylesheet" href="assets/layui/css/layui.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/load.css" />
+	</head>
+	<body>
+		<!-- header -->
+		<div class="ew-header">
+			<img class="layui-logo" src="assets/images/un28.svg" style="height:50px;padding: 10px;" />
+			<div class="ew-nav-group">
+				<div class="nav-toggle"><i class="layui-icon layui-icon-more-vertical"></i></div>
+				<ul class="layui-nav" lay-filter="ew-header-nav">
+					<li class="layui-nav-item">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="index.html">项目</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="doc/index.html" target="_blank">文档</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="team.html">团队</a>
+					</li>
+					<li class="layui-nav-item">
+						<a lay-href="#sponsor">支持</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="section">
+		</div>
+
+		<!-- product -->
+		<div class="section" nav-id="sponsor" style="box-shadow: 0 0 8px rgba(0,0,0,.101562);">
+			<div class="section-title">
+				<p></p>
+			</div>
+			<div class="layui-container">
+				<img style="height: 150px;margin-top: -30px;margin-bottom: 45px;" src="assets/images/un29.svg" />
+				<div style="display: inline-block;margin-left: 50px;font-size: 14px;">
+					<h2>赞助支持</h2>
+					<br>
+					<p> 排名前八位，我们将给予主页展示 <a href="mailto:contact@pearadmin.com" style="color: #63A35C;font-size: 13;">我要赞助</a></p>
+				</div>
+			</div>
+		</div>
+		
+		<div style="margin-top: 50px;margin-bottom: 50px;" class="layui-container">
+			<div class="layui-card">
+				<div class="layui-card-body">
+					<!-- 表格 -->
+					<table id="sponsor-table" lay-filter="sponsor-table"></table>
+				</div>
+			</div>
+		</div>
+		
+		<!-- footer -->
+		<!-- footer -->
+		<div class="ew-footer">
+			<div class="layui-container">
+				<div class="layui-row layui-col-space30">
+					<div class="layui-col-md6">
+						<h2 style="font-size: 17px;" class="footer-item-title">技术交流</h2>
+						<p class="img-group" style="height: 105px;font-size: 15.5px;">
+							<img src="assets/images/code2.png" style="border-radius: 2px;height: 100px;width: 100px;" />
+							扫码免费加入前后端分离技术交流QQ群，备案号：鲁ICP备20028311号
+						</p>
+					</div>
+					<div class="layui-col-md4">
+						<h2 style="font-size: 17px;" class="footer-item-title">联系我们</h2>
+						<p>
+							<i class="layui-icon layui-icon-dialogue"></i>
+							<a href="http://www.pearadmin.com">官网 : www.pearadmin.com</a>
+						</p>
+						<p style="margin-top: 2px;">
+							<i class="layui-icon layui-icon-website"></i>
+							<a href="https://gitee.com/pear-admin">仓库 : gitee.com/pear-admin</a>
+						</p>
+					</div>
+					<div class="layui-col-md2">
+						<h2 style="font-size: 17px;" class="footer-item-title">相关链接</h2>
+						<p><i class="layui-icon layui-icon-component"></i><a href="https://gitee.com/pear-admin" target="_blank">组织</a></p>
+						<p style="margin-top: 10px;"><i class="layui-icon layui-icon-home"></i><a href="https://gitee.com/pear-admin/Pear-Admin-Layui"
+							 target="_blank">仓库</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- js部分 -->
+		<script type="text/javascript" src="assets/layui/layui.js"></script>
+		<script type="text/javascript" src="assets/js/common.js"></script>
+		<script>
+			layui.use(['layer', 'form', 'jquery', 'table'], function() {
+				var $ = layui.jquery;
+				var layer = layui.layer;
+				var form = layui.form;
+				var jquery = layui.jquery;
+				var table = layui.table;
+				
+				let cols = [
+					[
+						{
+							title: '来源',
+							field: 'username',
+							align: 'center',
+							width: 100
+						},
+						{
+							title: '金额',
+							field: 'money',
+							align: 'center'
+						},
+						{
+							title: '附语',
+							field: 'remark',
+							align: 'center',
+							width: 80,
+						},
+						{
+							title: '日期',
+							field: 'datetime',
+							align: 'center'
+						}
+					]
+				]
+				
+				table.render({
+					elem: '#sponsor-table',
+					url: './assets/data/sponsor.json',
+					page: true,
+					cols: cols,
+					skin: 'line',
+					defaultToolbar: false
+				});
+			});
+		</script>
+	</body>
+</html>
